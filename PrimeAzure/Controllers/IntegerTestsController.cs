@@ -8,18 +8,18 @@ using System.Web.Http;
 
 namespace PrimeAzure.Controllers
 {
-    [RoutePrefix("IntegerTests")]
-    public class IntegerTestsController : ApiController
+  [RoutePrefix("IntegerTests")]
+  public class IntegerTestsController : ApiController
+  {
+    [HttpGet]
+    [Route(@"IsPrime/{value}")]
+    public object IsPrime(int value)
     {
-        [HttpGet]
-        [Route(@"IsPrime/{value}")]
-        public object IsPrime(int value)
-        {
-            return new
-            {
-                value = value,
-                result = PrimeService.Primes.IsPrime(value)
-            };
-        }
+      return new
+      {
+        value = value,
+        result = PrimeService.Primes.IsPrime(value)
+      };
     }
+  }
 }
